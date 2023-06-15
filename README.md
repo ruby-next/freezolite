@@ -40,7 +40,7 @@ FreezeTheList is compatible with Bootsnap. Just make sure you require it **after
 
 require "bootsnap/setup"
 require "freeze_the_lits/auto"
-require "bundler/setup
+require "bundler/setup"
 ```
 
 ### Using in tests
