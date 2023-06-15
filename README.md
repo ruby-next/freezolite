@@ -45,11 +45,25 @@ require "bundler/setup"
 
 ### Using in tests
 
-Usually, when we load tests we use different entry-points. Thus, we need to require the gem in each of them. For example, in Rails, we need to require it in `test_helper.rb` and `rails_helper.rb`:
+Usually, when we load tests we use different entry-points. Thus, we need to load `freeze_the_lits` differently if we want to enable auto-freezing for test files, too. 
+
+#### RSpec
+
+Put the following line to `spec_helper.rb`:
 
 ```ruby
 require "freeze_the_lits/auto"
 ```
+
+Make sure you have `spec_helper.rb` _preloaded_ by RSpec by putting the following to the `.rspec` file:
+
+```txt
+--require spec_helper
+```
+
+#### Minitest
+
+🤷‍♂️
 
 ### Supported Ruby versions
 
