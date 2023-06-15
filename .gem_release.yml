@@ -1,0 +1,4 @@
+bump:
+  file: lib/freeze_the_lits/version.rb
+  skip_ci: true
+
