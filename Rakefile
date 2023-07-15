@@ -12,7 +12,7 @@ end
 
 task "test:nofreeze" do
   Bundler.with_unbundled_env do
-    sh "FREEZE_THE_LITS=false bundle exec rake test"
+    sh "FREEZOLITE_DISABLED=true bundle exec rake test"
   end
 end
 

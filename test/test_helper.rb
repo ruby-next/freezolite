@@ -6,12 +6,12 @@ rescue LoadError
 end
 
 $LOAD_PATH.unshift File.expand_path("../lib", __dir__)
-require "freeze_the_lits"
+require "freezolite"
 
-if ENV["FREEZE_THE_LITS"] == "false"
-  $stdout.puts "FREEZE_THE_LITS is disabled"
+if ENV["FREEZOLITE_DISABLED"] == "true"
+  $stdout.puts "Freezolite is disabled"
 else
-  FreezeTheLits.setup(
+  Freezolite.setup(
     watch_dirs: [
       File.join(__dir__, "fixtures", "app"),
       File.join(__dir__, "fixtures", "test")
