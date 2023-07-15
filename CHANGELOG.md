@@ -2,6 +2,8 @@
 
 ## master
 
+## 0.2.0 (2023-07-14)
+
 - Change name from `freeze_the_lits` to `freezolite`. ([@palkan][])
 
 - Migrate to `require-hooks`. ([@palkan][])

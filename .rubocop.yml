@@ -20,8 +20,5 @@ AllCops:
   NewCops: disable
   TargetRubyVersion: 3.0
 
-Standard/BlockSingleLineBraces:
-  Enabled: false
-
 Style/FrozenStringLiteralComment:
   Enabled: false
