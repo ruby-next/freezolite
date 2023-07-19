@@ -4,14 +4,17 @@ require "freezolite/version"
 
 module Freezolite
   class << self
-    attr_accessor :watch_dirs
+    attr_accessor :patterns, :exclude_patterns
 
-    def setup(watch_dirs:)
-      self.watch_dirs = watch_dirs.freeze
+    def setup(patterns:, exclude_patterns: nil)
+      self.patterns = patterns
+      self.exclude_patterns = exclude_patterns
+
       require "require-hooks/setup"
 
       ::RequireHooks.around_load do |path, &block|
-        next block.call unless watch_dirs.any? { |dir| path.start_with?(dir) }
+        next block.call unless patterns.any? { |pattern| File.fnmatch?(pattern, path) }
+        next block.call if exclude_patterns&.any? { |pattern| File.fnmatch?(pattern, path) }
 
         begin
           was_frozen_string_literal = ::RubyVM::InstructionSequence.compile_option[:frozen_string_literal]

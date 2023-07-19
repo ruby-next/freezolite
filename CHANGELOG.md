@@ -2,6 +2,10 @@
 
 ## master
 
+- Ignore `./vendor` by default when using `freezolite/auto`. ([@palkan][])
+
+- Replace `watch_dirs` with `patterns` and `exclude_patterns`. ([@palkan][])
+
 ## 0.2.0 (2023-07-14)
 
 - Change name from `freeze_the_lits` to `freezolite`. ([@palkan][])

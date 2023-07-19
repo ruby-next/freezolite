@@ -27,9 +27,13 @@ By default, the gem uses `Dir.pwd` to determine the project root. If you want to
 require "freezolite"
 
 Freezolite.setup(
-  watch_dirs: ["/path/to/dir1", "/path/to/dir2"]
+  # You must pass a list of glob patterns
+  patterns: ["/path/to/dir1/**/*.rb", "/path/to/dir2/**/*.rb"],
+  exclude_patterns: ["/path/to/dir1/vendor/**/*"]
 )
 ```
+
+**NOTE**: When using auto mode, the `<project-root>/vendor/bundle` folder is excluded automatically. In manual mode, you may want to exclude it yourself.
 
 ### Using with Bootsnap
 

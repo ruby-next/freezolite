@@ -1,3 +1,6 @@
 require "freezolite"
 
-Freezolite.setup(watch_dirs: [Dir.pwd])
+Freezolite.setup(
+  patterns: [File.join(Dir.pwd, "*.rb")],
+  exclude_patterns: [File.join(Dir.pwd, "vendor", "*")]
+)

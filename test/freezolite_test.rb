@@ -36,5 +36,12 @@ class FreezeTheListTest < Minitest::Test
 
       assert_raises(FrozenError) { NameTest.run }
     end
+
+    def test_excluded_patterns
+      load File.join(__dir__, "./fixtures/app/vendor/bundle/gem.rb")
+
+      assert_equal "hot", VendorGem::CONSTANT
+      refute VendorGem::CONSTANT.frozen?
+    end
   end
 end

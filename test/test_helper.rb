@@ -12,9 +12,12 @@ if ENV["FREEZOLITE_DISABLED"] == "true"
   $stdout.puts "Freezolite is disabled"
 else
   Freezolite.setup(
-    watch_dirs: [
-      File.join(__dir__, "fixtures", "app"),
-      File.join(__dir__, "fixtures", "test")
+    patterns: [
+      File.join(__dir__, "fixtures", "app", "*.rb"),
+      File.join(__dir__, "fixtures", "test", "*.rb")
+    ],
+    exclude_patterns: [
+      File.join(__dir__, "fixtures", "app", "vendor", "*")
     ]
   )
 end
