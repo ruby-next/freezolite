@@ -2,6 +2,8 @@
 
 ## master
 
+## 0.3.0 (2023-07-19)
+
 - Ignore `./vendor` by default when using `freezolite/auto`. ([@palkan][])
 
 - Replace `watch_dirs` with `patterns` and `exclude_patterns`. ([@palkan][])
