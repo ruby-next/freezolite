@@ -15,10 +15,17 @@ Add the gem to your Gemfile:
 gem "freezolite"
 ```
 
-And drop the following line to your application entrypoint (e.g., `config/boot.rb` for Rails):
+And drop the following line to your application entry-point **after loading dependencies** and before loading your application code. For example, in Rails, you can put it to `config/application.rb` after the `Bundler.require(...)` call:
 
 ```ruby
+# config/application.rb
+
+#...
+Bundler.require(*Rails.groups)
+
 require "freezolite/auto"
+
+# <application configuration>
 ```
 
 By default, the gem uses `Dir.pwd` to determine the project root. If you want to use a different directory or multiple directories, configure the gem like this:
@@ -28,8 +35,8 @@ require "freezolite"
 
 Freezolite.setup(
   # You must pass a list of glob patterns
-  patterns: ["/path/to/dir1/**/*.rb", "/path/to/dir2/**/*.rb"],
-  exclude_patterns: ["/path/to/dir1/vendor/**/*"]
+  patterns: ["/path/to/dir1/*.rb", "/path/to/dir2/*.rb"],
+  exclude_patterns: ["/path/to/dir1/vendor/*"]
 )
 ```
 
@@ -37,37 +44,7 @@ Freezolite.setup(
 
 ### Using with Bootsnap
 
-FreezeTheList is compatible with Bootsnap. Just make sure you require it **after** Bootsnap:
-
-```ruby
-# config/boot.rb
-
-require "bootsnap/setup"
-require "freezolite/auto"
-require "bundler/setup"
-```
-
-### Using in tests
-
-Usually, when we load tests we use different entry-points. Thus, we need to load `freezolite` differently if we want to enable auto-freezing for test files, too. 
-
-#### RSpec
-
-Put the following line to `spec_helper.rb`:
-
-```ruby
-require "freezolite/auto"
-```
-
-Make sure you have `spec_helper.rb` _preloaded_ by RSpec by putting the following to the `.rspec` file:
-
-```txt
---require spec_helper
-```
-
-#### Minitest
-
-🤷‍♂️
+Freezolite is compatible with Bootsnap. Just make sure you require it **after** Bootsnap. No manual cache invalidation required.
 
 ### Supported Ruby versions
 
