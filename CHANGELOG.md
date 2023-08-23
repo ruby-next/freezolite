@@ -2,6 +2,10 @@
 
 ## master
 
+## 0.4.0 (2023-08-23)
+
+- Upgrade to `require-hooks` 0.2.0. ([@palkan][])
+
 ## 0.3.0 (2023-07-19)
 
 - Ignore `./vendor` by default when using `freezolite/auto`. ([@palkan][])
