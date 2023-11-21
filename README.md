@@ -5,7 +5,7 @@
 
 Tired of adding `# frozen_string_literals: true` to every file in your project or running `rubocop -A` to make it do that for you? What if I told you that you can just add a single gem to your project and activate this option **for the project's files** automatically (without enabling it globally)?
 
-Freezolite is a gem that turn the `frozen_string_literal` compile option on only for the specified files. Thus, it's like running Ruby with `--enable=frozen-string-literal` but only for the files you own.
+Freezolite is a gem that turns the `frozen_string_literal` compile option on only for the specified files. Thus it's like running Ruby with `--enable=frozen-string-literal` but only for the files you own.
 
 ## Usage
 
@@ -15,7 +15,7 @@ Add the gem to your Gemfile:
 gem "freezolite"
 ```
 
-And drop the following line to your application entry-point **after loading dependencies** and before loading your application code. For example, in Rails, you can put it to `config/application.rb` after the `Bundler.require(...)` call:
+And drop the following line into your application entry-point **after loading dependencies** and before loading your application code. For example, in Rails, you can put it in `config/application.rb` after the `Bundler.require(...)` call:
 
 ```ruby
 # config/application.rb
