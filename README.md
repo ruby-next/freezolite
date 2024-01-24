@@ -7,6 +7,8 @@ Tired of adding `# frozen_string_literals: true` to every file in your project o
 
 Freezolite is a gem that turns the `frozen_string_literal` compile option on only for the specified files. Thus it's like running Ruby with `--enable=frozen-string-literal` but only for the files you own.
 
+> 📖 Read more about the motiviation behind this project in ["Freezolite: the magic gem for keeping Ruby literals safely frozen"](https://evilmartians.com/chronicles/freezolite-the-magic-gem-for-keeping-ruby-literals-safely-frozen) post.
+
 ## Usage
 
 Add the gem to your Gemfile:
