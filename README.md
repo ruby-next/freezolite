@@ -42,7 +42,8 @@ Freezolite.setup(
 )
 ```
 
-**NOTE**: When using auto mode, the `<project-root>/vendor/bundle` folder is excluded automatically. In manual mode, you may want to exclude it yourself.
+> [!NOTE]
+> When using auto mode, the `<project-root>/vendor/bundle` folder is excluded automatically. In manual mode, you may want to exclude it yourself.
 
 ### Using with Bootsnap
 
