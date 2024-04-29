@@ -2,6 +2,8 @@
 
 ## master
 
+## 0.5.0 (2024-04-29)
+
 - Add constants freezing via the `# shareable_constant_value: ...` pragma. ([@palkan][])
 
 ## 0.4.0 (2023-08-23)
