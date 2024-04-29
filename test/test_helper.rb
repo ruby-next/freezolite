@@ -11,6 +11,7 @@ require "freezolite"
 if ENV["FREEZOLITE_DISABLED"] == "true"
   $stdout.puts "Freezolite is disabled"
 else
+  Freezolite.experimental_freeze_constants = true
   Freezolite.setup(
     patterns: [
       File.join(__dir__, "fixtures", "app", "*.rb"),

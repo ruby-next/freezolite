@@ -2,6 +2,8 @@
 
 ## master
 
+- Add constants freezing via the `# shareable_constant_value: ...` pragma. ([@palkan][])
+
 ## 0.4.0 (2023-08-23)
 
 - Upgrade to `require-hooks` 0.2.0. ([@palkan][])

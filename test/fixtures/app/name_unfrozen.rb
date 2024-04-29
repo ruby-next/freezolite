@@ -1,4 +1,5 @@
 # frozen_string_literal: false
+# shareable_constant_value: none
 
 class Name
   attr_reader :name

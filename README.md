@@ -9,6 +9,8 @@ Freezolite is a gem that turns the `frozen_string_literal` compile option on onl
 
 > 📖 Read more about the motivation behind this project in ["Freezolite: the magic gem for keeping Ruby literals safely frozen"](https://evilmartians.com/chronicles/freezolite-the-magic-gem-for-keeping-ruby-literals-safely-frozen) post.
 
+Freezolite also comes with experimental support for [freezing constants](#freezing-constants).
+
 ## Usage
 
 Add the gem to your Gemfile:
@@ -47,6 +49,22 @@ Freezolite.setup(
 ### Using with Bootsnap
 
 Freezolite is compatible with Bootsnap. Just make sure you require it **after** Bootsnap. No manual cache invalidation required.
+
+### Freezing constants
+
+Ruby 3 introduced a new pragma—[`# shareable_constant_value: ...`](https://bugs.ruby-lang.org/issues/17273). It's meant to be used with Ractor-driven applications to easily turn constants into Ractor-shareable objects within a source file. Making Ractor-shareable implies **deep freezing**, thus, we can leverage this pragma to automatically freeze constants!
+
+Freezolite can automatically inject this pragma for you (only for matching files, similarly to frozen literals). You need to opt-in to enable this feature:
+
+```ruby
+require "freezolite"
+# You can also specify specific values, such as literal, experimental_copy, etc.
+# Setting to `true` is equal to the `literal` value.
+Freezolite.experimental_freeze_constants = true
+require "freezolite/auto" # or setup manually
+```
+
+**NOTE:** This feature is considered experimental for the following reasons: 1) the pragma itself is not widely used and we still need to learn how to use it in our applications; 2) unlike `# frozen_string_literal`, this setting is not a compiler option but a parser context switch; thus, we have to use source transform here, and literally add a line to the source file, thus, breaking the line numbers in your stack traces, etc.
 
 ### Supported Ruby versions
 

@@ -17,6 +17,19 @@ class FreezeTheListTest < Minitest::Test
 
       assert_equal "name 1 2", NameTest.run
     end
+
+    def test_constants
+      load File.join(__dir__, "./fixtures/app/constants.rb")
+
+      refute Constants::ARR.frozen?
+      Constants::ARR << 4
+
+      refute Constants::HASH.frozen?
+      Constants::HASH[:d] = 4
+
+      refute Constants::SomeClass.frozen?
+      Constants::SomeClass.define_method(:some_method) { "some_method" }
+    end
   else
     def test_fixtures_with_freezolite_enabled
       load File.join(__dir__, "./fixtures/app/name.rb")
@@ -42,6 +55,16 @@ class FreezeTheListTest < Minitest::Test
 
       assert_equal "hot", VendorGem::CONSTANT
       refute VendorGem::CONSTANT.frozen?
+    end
+
+    def test_constants
+      load File.join(__dir__, "./fixtures/app/constants.rb")
+
+      assert Constants::ARR.frozen?
+      assert Constants::HASH.frozen?
+
+      refute Constants::SomeClass.frozen?
+      Constants::SomeClass.define_method(:some_method) { "some_method" }
     end
   end
 end
