@@ -57,14 +57,16 @@ class FreezeTheListTest < Minitest::Test
       refute VendorGem::CONSTANT.frozen?
     end
 
-    def test_constants
-      load File.join(__dir__, "./fixtures/app/constants.rb")
+    if RUBY_VERSION >= "3.0.0"
+      def test_constants
+        load File.join(__dir__, "./fixtures/app/constants.rb")
 
-      assert Constants::ARR.frozen?
-      assert Constants::HASH.frozen?
+        assert Constants::ARR.frozen?
+        assert Constants::HASH.frozen?
 
-      refute Constants::SomeClass.frozen?
-      Constants::SomeClass.define_method(:some_method) { "some_method" }
+        refute Constants::SomeClass.frozen?
+        Constants::SomeClass.define_method(:some_method) { "some_method" }
+      end
     end
   end
 end

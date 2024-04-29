@@ -65,7 +65,8 @@ Freezolite.experimental_freeze_constants = true
 require "freezolite/auto" # or setup manually
 ```
 
-**NOTE:** This feature is considered experimental for the following reasons: 1) the pragma itself is not widely used and we still need to learn how to use it in our applications; 2) unlike `# frozen_string_literal`, this setting is not a compiler option but a parser context switch; thus, we have to use source transform here, and literally add a line to the source file, thus, breaking the line numbers in your stack traces, etc.
+> [!NOTE]
+> This feature is considered experimental for the following reasons: 1) the pragma itself is not widely used and we still need to learn how to use it in our applications; 2) unlike `# frozen_string_literal`, this setting is not a compiler option but a parser context switch; thus, we have to use source transform here, and literally add a line to the source file, thus, breaking the line numbers in your stack traces, etc.
 
 ### Supported Ruby versions
 
