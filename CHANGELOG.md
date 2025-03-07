@@ -2,6 +2,12 @@
 
 ## master
 
+## 0.6.0 (2025-03-07)
+
+- Ruby 3.4 support. ([@palkan][])
+
+## 0.5.0
+
 - Add constants freezing via the `# shareable_constant_value: ...` pragma. ([@palkan][])
 
 ## 0.4.0 (2023-08-23)
