@@ -57,6 +57,13 @@ class FreezeTheListTest < Minitest::Test
       refute VendorGem::CONSTANT.frozen?
     end
 
+    def test_nesting
+      load File.join(__dir__, "./fixtures/app/nested.rb")
+
+      assert Nested::PARENT_STRING.frozen?
+      refute Strings.hello.frozen?
+    end
+
     if RUBY_VERSION >= "3.0.0"
       def test_constants
         load File.join(__dir__, "./fixtures/app/constants.rb")

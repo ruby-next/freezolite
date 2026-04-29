@@ -21,6 +21,13 @@ module Freezolite
         ::RubyVM::InstructionSequence.compile_option = {frozen_string_literal: was_frozen_string_literal}
       end
 
+      default_frozen_string_literal = ::RubyVM::InstructionSequence.compile_option[:frozen_string_literal] || false
+
+      ::RequireHooks.around_load do |path, &block|
+        ::RubyVM::InstructionSequence.compile_option = {frozen_string_literal: default_frozen_string_literal}
+        block.call
+      end
+
       if experimental_freeze_constants
         val = experimental_freeze_constants
         RequireHooks.source_transform(patterns: patterns, exclude_patterns: exclude_patterns) do |path, source|

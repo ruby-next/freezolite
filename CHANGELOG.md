@@ -2,6 +2,10 @@
 
 ## master
 
+## 0.7.0 (2026-04-29)
+
+- Fixed setting the frozen flag for nested requires. ([@palkan][])
+
 ## 0.6.0 (2025-03-07)
 
 - Ruby 3.4 support. ([@palkan][])
