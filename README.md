@@ -12,7 +12,7 @@ Freezolite is a gem that turns the `frozen_string_literal` compile option on onl
 Freezolite also comes with experimental support for [freezing constants](#freezing-constants).
 
 > [!IMPORTANT]
-> [Bootsnap](https://github.com/rails/bootsnap) provides Freezolite functionality out of the box since version 1.24.4 via `Bootsnap.enable_frozen_string_literal` option that works on Ruby 4.0.4+ only. If you use Bootsnap and recent Ruby, upgrade Bootsnap and drop Freezolite.
+> [Bootsnap](https://github.com/rails/bootsnap) provides Freezolite functionality out of the box since version 1.24.4 via `Bootsnap.enable_frozen_string_literal` option that works on Ruby 4.0.4+ (or 3.4.10+) only. If you use Bootsnap and recent Ruby, upgrade Bootsnap and drop Freezolite.
 
 ## Usage
 
