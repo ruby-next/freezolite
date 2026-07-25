@@ -14,6 +14,10 @@ Freezolite also comes with experimental support for [freezing constants](#freezi
 > [!IMPORTANT]
 > [Bootsnap](https://github.com/rails/bootsnap) provides Freezolite functionality out of the box since version 1.24.4 via `Bootsnap.enable_frozen_string_literal` option that works on Ruby 4.0.4+ (or 3.4.10+) only. If you use Bootsnap and recent Ruby, upgrade Bootsnap and drop Freezolite.
 
+<br/>
+
+<img src="https://cdn.evilmartians.com/badges/logo-no-label.svg" alt="Evil Martians logo" width="22" height="16" /> <b>Freezolite</b> is built by <b><a href="https://evilmartians.com/">Evil Martians</a></b>, an American design and engineering consultancy for <b>developer tools, AI, and cybersecurity startups</b>.
+
 ## Usage
 
 Add the gem to your Gemfile:
